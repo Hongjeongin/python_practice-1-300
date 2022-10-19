@@ -107,14 +107,14 @@
 #     print("유효한 주민등록번호입니다.")
 
 #130 시가 파악(상승장, 하락장)
-import requests
-btc = requests.get("https://api.bithumb.com/public/ticker/").json()['data']
+# import requests
+# btc = requests.get("https://api.bithumb.com/public/ticker/").json()['data']
 
-difference = float(btc["opening_price"]) + float(btc["max_price"]) - float(btc["min_price"])
-print(btc)
-print(difference, btc["max_price"])
-if difference > float(btc["max_price"]):
-    print("상승장")
-else:
-    print("하락장")
+# difference = float(btc["opening_price"]) + float(btc["max_price"]) - float(btc["min_price"])
+# print(btc)
+# print(difference, btc["max_price"])
+# if difference > float(btc["max_price"]):
+#     print("상승장")
+# else:
+#     print("하락장")
 
