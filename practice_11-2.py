@@ -57,20 +57,59 @@ print(f"코드: {samsung.get_code()}")
 # 생성자에서 종목명, 종목코드, PER, PBR, 배당수익률을 입력 받을 수 있도록 생성자를 수정하세요. PER, PBR, 배당수익률은 float 타입입니다.
 
 class Stock_5(Stock_4):
-    def __init__(self, name, code, per, pbr, revenue: float) -> None:
+    def __init__(self, name, code, per, pbr, dividend: float) -> None:
         self.name = name
         self.code = code
         self.per = per
         self.pbr = pbr
-        self.revenue = revenue
+        self.dividend = dividend
         
     def printMySelf(self):
         print(f"이름: {self.name}")
         print(f"코드: {self.code}")
         print(f"PER: {self.per}")
         print(f"PBR: {self.pbr}")
-        print(f"배당수익률: {self.revenue}")
-        
-samsung = Stock_5("삼성전자", "005930", 15.79, 1.33, 2.83)
+        print(f"배당수익률: {self.dividend}")
+
 print("<266>")
+
+# 267
+# 266에서 정의한 생성자를 통해 다음 정보를 갖는 객체 생성
+print("<267>")
+samsung = Stock_5("삼성전자", "005930", 15.79, 1.33, 2.83)
 samsung.printMySelf()
+
+# 268
+# PER, PBR, 배당수익률은 변경될 수 있는 값입니다. 이 값을 변경할 때 사용하는 set_per, set_pbr, set_dividend 메서드를 추가하세요.
+
+class Stock_6(Stock_5):
+    def set_per(self, per):
+        self.per = per
+    
+    def set_pbr(self, pbr):
+        self.pbr = pbr
+    
+    def set_dividend(self, dividend):
+        self.dividend = dividend
+
+print("<268>")
+
+# 269
+# 267번에서 생성한 객체에 set_per 메서드를 호출하여 per 값을 12.75로 수정해보세요.
+samsung = Stock_6("삼성전자", "005930", 15.79, 1.33, 2.83)
+samsung.set_per(12.75)
+print("<269>")
+samsung.printMySelf()
+
+# 270
+# 아래의 표를 참조하여 3종목에 대해 객체를 생성하고 이를 파이썬 리스트에 저장하세요. 파이썬 리스트에 저장된 각 종목에 대해 for 루프를 통해 종목코드와 PER을 출력해보세요.
+samsung = Stock_6("삼성전자", "005930", 15.79, 1.33, 2.83)
+hyundae = Stock_6("현대차", "005380", 8.70, 0.35, 4.27)
+lg = Stock_6("LG전자", "066570", 317.34, 0.69, 1.37)
+
+stock_list = [samsung, hyundae, lg]
+
+print("<270>")
+for stock in stock_list:
+    print(stock)
+    stock.printMySelf()
